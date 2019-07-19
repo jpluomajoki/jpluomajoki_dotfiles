@@ -1,0 +1,34 @@
+{
+  "workbench.editor.enablePreview": false,
+  "window.zoomLevel": 0,
+  "debug.node.autoAttach": "off",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "vue", "autoFix": true }
+  ],
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500,
+  "editor.lineNumbers": "relative",
+  "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "files.watcherExclude": {
+    "**": true
+  },
+  "files.useExperimentalFileWatcher": false,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+
