@@ -69,6 +69,8 @@ plugins=(
   yarn
   lein
   zsh-syntax-highlighting
+  rust
+  cargo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,11 +112,11 @@ export PATH=~/Library/Python/3.7/bin:$PATH
 # Setting PATH for Python 3.7
 # The original version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
 
 PATH="/Users/jereluomajoki/Library/Python/2.7/bin:${PATH}"
 
 PATH="/usr/local/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -122,10 +124,13 @@ export NVM_DIR="$HOME/.nvm"
 # use vi editing mode
 set -o vi
 export KEYTIMEOUT=1
-
-# Aliases for java version
-alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
-alias j11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
+# Suppress locale errors
+export LC_COLLATE="C"
+export LC_CTYPE="UTF-8"
+export LC_MESSAGES="C"
+export LC_MONETARY="C"
+export LC_NUMERIC="C"
+export LC_TIME="C"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jereluomajoki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jereluomajoki/google-cloud-sdk/path.zsh.inc'; fi
@@ -135,10 +140,30 @@ if [ -f '/Users/jereluomajoki/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-RPROMPT="[%T]"
+# Aliases
+source ~/.aliases
 
-# Docker aliases
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-alias dpsq="docker ps -q"
-alias dpsaq="docker ps -aq"
+# Vim mode visualizer
+function zle-keymap-select zle-line-init
+{
+    # change cursor shape in iTerm2
+    case $KEYMAP in
+        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish
+{
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+ 
+# alias for thefuck
+eval $(thefuck --alias)
