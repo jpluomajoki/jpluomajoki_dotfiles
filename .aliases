@@ -10,3 +10,6 @@ alias dpsa="docker ps -a"
 alias dpsq="docker ps -q"
 alias dpsaq="docker ps -aq"
 
+# Misc.
+alias sp="spotify"
+
