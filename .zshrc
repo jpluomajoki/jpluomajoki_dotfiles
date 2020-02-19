@@ -69,8 +69,11 @@ plugins=(
   yarn
   lein
   zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-z
   rust
   cargo
+  osx
 )
 
 source $ZSH/oh-my-zsh.sh
