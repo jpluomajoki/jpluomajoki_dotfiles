@@ -170,3 +170,5 @@ zle -N zle-keymap-select
  
 # alias for thefuck
 eval $(thefuck --alias)
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
