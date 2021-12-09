@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -67,6 +67,8 @@ plugins=(
   docker
   docker-compose 
   yarn
+  lein
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,11 +112,16 @@ export PATH=~/Library/Python/3.7/bin:$PATH
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
+PATH="/Users/jereluomajoki/Library/Python/2.7/bin:${PATH}"
+
+PATH="/usr/local/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # use vi editing mode
 set -o vi
+export KEYTIMEOUT=1
 
 # Aliases for java version
 alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
@@ -128,3 +135,10 @@ if [ -f '/Users/jereluomajoki/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+RPROMPT="[%T]"
+
+# Docker aliases
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dpsq="docker ps -q"
+alias dpsaq="docker ps -aq"
