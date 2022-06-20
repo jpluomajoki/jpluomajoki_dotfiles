@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
-Plug 'olical/conjure'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,6 +16,7 @@ Plug 'junegunn/fzf', { 'do' : { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'airblade/vim-gitgutter'
 
 "--- Theming
 Plug 'ryanoasis/vim-devicons'
@@ -28,7 +28,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install' }
 
 "--- Clojure
-Plug 'Olical/conjure', {'tag': 'v4.15.0'}
+Plug 'Olical/conjure'
 
 "-- Sexp
 Plug 'guns/vim-sexp'
@@ -72,6 +72,8 @@ hi LinrNr term=NONE
 filetype plugin indent on
 let g:loaded_matchparen=1
 set encoding=UTF-8
+set wrap
+set linebreak
 
 """""""""""""""""
 
@@ -89,18 +91,16 @@ let maplocalleader = " "
 "FZF
 nnoremap <silent><leader>q :bp<CR>
 nnoremap <silent><leader>n :Files<CR>
+nnoremap <leader>f :Rg<CR>
 
 " NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-n> :NERDTree<CR>
-
 
 " Moving between splits
 nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
-
-
 
 """"""""""""""""
