@@ -7,6 +7,4 @@ map({ "n" }, "===", function()
   LazyVim.format({ force = true })
 end, { desc = "general format file" })
 
-map("n", "<leader>fw", function()
-  require("fzf-lua").live_grep_native()
-end, { desc = "Grep" })
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

@@ -2,10 +2,16 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
     filesystem = {
+      --visible = true,
       filtered_items = {
-        visible = true,
         hide_dotfiles = true,
         hide_gitignored = true,
+        hide_by_name = {
+          "node_modules",
+        },
+        always_show = {
+          ".gitignored",
+        },
       },
     },
   },
