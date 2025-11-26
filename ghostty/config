@@ -1,0 +1,18 @@
+keybind=ctrl+shift+w=close_surface
+keybind=ctrl+shift+up=goto_split:up
+keybind=ctrl+shift+right=goto_split:right
+keybind=ctrl+shift+down=goto_split:down
+keybind=ctrl+shift+left=goto_split:left
+keybind=ctrl+shift+i=new_split:right
+keybind=ctrl+shift+_=new_split:down
+
+theme = Gruvbox Dark
+
+font-family=FiraCode Nerd Font Mono Med
+
+background-opacity=0.9
+unfocused-split-opacity=0.7
+cursor-invert-fg-bg=true
+
+gtk-titlebar-style=tabs
+window-new-tab-position=end
