@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ -n "$1" ]]; then
+    start=$(date -d "today $1" +%s)
+else
+    start=$(journalctl --since "today" --no-pager --output short-unix | head -n1 | awk '{print int($1)}')
+fi
+now=$(date +%s)
+diff=$((now-start-1800))
+hours=$((diff/3600))
+minutes=$(((diff%3600)/60))
+decimal=$(awk "BEGIN {printf \"%.2f\", (int($diff/3600*4+0.5))/4}")
+start_time=$(date -d "@$start" +%H:%M)
+echo "Started: ${start_time} | ${hours}h ${minutes}min (${decimal})"

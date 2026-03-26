@@ -1,0 +1,16 @@
+#!/bin/bash
+
+spin='-\|/'
+
+i=0
+start=$(lsusb)
+end=$start
+while [ "$start" == "$end" ]
+do
+  end=$(lsusb)
+  i=$(( (i+1) %4 ))
+  printf "\rWaiting for changes in lsusb ${spin:$i:1}"
+  sleep .1
+done
+
+diff --color=always <(echo "$start") <(echo "$end")
